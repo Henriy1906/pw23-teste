@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProdutosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,16 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// teste aulinha 25/05
+// Route::get('/teste/{algo?}', function($algo = null) {
+//     return "O teste funcionou - {$algo} :)";
+// });
+
+// Route::get('/teste-view/{param?}', function($param = null) {
+//     return view('teste-view', [
+//         'valor_da_controller' => $param,
+//     ]);
+// });
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/teste/{algo?}', function($algo = null) {
-    return "O teste funcionou - {$algo} :)";
-});
-
-Route::get('/teste-view/{param?}', function($param = null) {
-    return view('teste-view', [
-        'valor_da_controller' => $param,
-    ]);
-});
+Route::get('/produtos', [ProdutosController::class, 'index']);
