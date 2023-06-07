@@ -8,8 +8,17 @@
 </head>
 <body>
 
-    <h1>Site pikudo</h1>
-    <hr>
+    <h1 style="color: rgb(214, 61, 219)">Site pikudo</h1>
+    <!--Menu-->
+    <div>
+        <ul>
+            <li><a href="{{ route('home')}} ">Home</a></li>
+            <li><a href="{{ route('produtos')}} ">Produtos</a></li>
+        </ul>
+    </div>
+
+    <hr style="color: rgb(214, 61, 219)">
+    {{-- Conteúdo --}}
     @yield('content')
 
 </body>
