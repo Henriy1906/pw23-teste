@@ -11,6 +11,12 @@ class ProdutosController extends Controller
     public function index() {
         $prods = Produto::all();
 
+        # Busca tudo com apagados
+        #$prods = Produto::withoutTrashed()->get();
+
+        # Busca apenas apagados
+        #$prods = Produto::onlyTrashed()->get();
+
         return view('produtos.index', [
             'prods' => $prods,
         ]);
@@ -52,7 +58,7 @@ class ProdutosController extends Controller
 
         $produto->fill($dados)->save();
 
-        return redirect()->route('produtos')->with('sucesso', 'Produto alterado com sucesso');
+        return redirect()->route('produtos')->with('sucesso', 'Produto alterado com sucesso!!!');
     }
 
     public function view(Produto $produto) {
@@ -62,10 +68,14 @@ class ProdutosController extends Controller
     }
 
     public function delete(Produto $produto) {
-
+        return view('produtos.delete', [
+            'prod' => $produto,
+        ]);
     }
 
     public function deleteForReal(Produto $produto) {
+        $produto->delete();
 
+        return redirect()->route('produtos')->with('sucesso', 'Produto apagueido com sucesso!!!');
     }
 }
