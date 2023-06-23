@@ -14,9 +14,9 @@ class ProdutosController extends Controller
 
             $ord = $request->ord == 'asc' ? 'asc' : 'desc';
 
-            $prods = Produto::where('name', 'LIKE', "%{$busca}%")->orderBy('name')->get();
+            $prods = Produto::where('name', 'LIKE', "%{$busca}%")->orderBy('price', $ord)->paginate();
         } else {
-            $prods = Produto::all();
+            $prods = Produto::paginate();
         }
 
 
