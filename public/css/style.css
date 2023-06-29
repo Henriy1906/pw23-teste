@@ -1,8 +1,13 @@
 body{
-    background-color: peru;
+    background-color: rgb(178, 194, 248);
 }
 
 .pagination{
-    border: 2px dashed purple;
+    border: 2px dashed rgb(179, 120, 179);
 }
 
+.pagination li {
+    float: left;
+    list-style-type: none;
+    margin-right: 10px;
+}
