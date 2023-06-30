@@ -10,11 +10,21 @@
 <body>
 
     <h1 style="color: rgb(214, 61, 219)">Site pikudo</h1>
+    <div>
+        @if (Auth::user())
+            Eai bbzinho(a) {{ Auth::user()->name }}
+            <br>
+            <a href="{{ route('logout') }}">Vaza</a>
+            @else
+            <a href="{{ route('login') }}">Faz login no site cabaço</a>
+        @endif
+    </div>
     <!--Menu-->
     <div>
         <ul>
             <li><a href="{{ route('home')}} ">Home</a></li>
             <li><a href="{{ route('produtos')}} ">Produtos</a></li>
+            <li><a href="{{ route('usuarios')}}">Usuários</a></li>
         </ul>
     </div>
 
