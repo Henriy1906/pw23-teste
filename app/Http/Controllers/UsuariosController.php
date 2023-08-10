@@ -45,7 +45,7 @@ class UsuariosController extends Controller
             ]);
 
             if (Auth::attempt($data)) {
-                return redirect()->intended('home');
+                return redirect()->intended(route('home'));
             } else {
                 return redirect()->route('login')->with('erro', 'Foi de F!');
         }

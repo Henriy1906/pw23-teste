@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UploadController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutosController;
@@ -79,3 +80,9 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
     $request->fulfill();
     return redirect()->route('home');
 })->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::prefix('/upload')->group(function() {
+    Route::get('', [UploadController::class, 'index'])->name('upload');
+
+    Route::post('save', [UploadController::class, 'save'])->name('upload.save');
+});
